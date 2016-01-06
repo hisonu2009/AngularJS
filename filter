@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>AngularJS Tutorial</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"> 
+</head>
+<body ng-controller="MainController">
+    <div class="container">
+        <div class="alert alert-info">{{title}}</div>
+    
+    	<h1>country in countries | filter:filterCountry (For Filter)</h1>
+        <div><input type="text" ng-model="filterCountry"></div>
+        <ul>
+            <li ng-repeat="country in countries | filter:filterCountry">
+                {{country.name}}
+            </li>
+        </ul>
+
+    </div>
+      
+    <script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script>
+		var app = angular.module('MyApp', []);
+
+		app.controller("MainController", function($scope){
+			$scope.title = 'AngularJS Filter Tutorial';
+			$scope.filterCountry = '';
+			$scope.countries = [
+				{name: 'India'},
+				{name: 'China'},
+				{name: 'France'},
+				{name: 'United Kingdom'}
+			];
+		});
+	</script>
+</body>
+
+</html>
