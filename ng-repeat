@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>AngularJS Tutorial</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"> 
+</head>
+<body ng-controller="MainController">
+    <div class="container">
+        <div class="alert alert-info">{{title}}</div>
+    
+    	<h1>ng-repeat (For Looping)</h1>
+        <ul>
+            <li ng-repeat="country in countries">
+                {{country.name}} has population of {{country.population}}
+            </li>
+        </ul>
+        <hr>
+        World's population: {{population}} millions
+
+    </div>
+      
+    <script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script>
+		var app = angular.module('MyApp', []);
+
+		app.controller("MainController", function($scope){
+			$scope.title = 'AngularJS Looping Tutorial';
+			
+			$scope.countries = [
+				{name: 'India', population: 120},
+				{name: 'China', population: 138.9},
+				{name: 'France', population: 63.1},
+				{name: 'United Kingdom', population: 61.8}
+			];
+		});
+	</script>
+</body>
+
+</html>
